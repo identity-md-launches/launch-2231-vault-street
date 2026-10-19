@@ -1,0 +1,24 @@
+{
+  "kind": "custom_token",
+  "token": {
+    "contract": "VaultStreet",
+    "name": "Vault Street",
+    "symbol": "VST",
+    "decimals": 18,
+    "constructorArgs": [],
+    "totalSupply": "1000000000000000000000000000"
+  },
+  "contracts": [],
+  "pool": {
+    "pairedCurrency": "0x0000000000000000000000000000000000000000",
+    "fee": 12500,
+    "tickSpacing": 60,
+    "initialPrice": "79228162514264337593543950336"
+  },
+  "economics": {
+    "poolBps": 8000,
+    "initialMarketCapWei": "10000000000000000000",
+    "remainderTo": "0x612a9bb008e16ef2d24f41dae9fc661831d93367"
+  },
+  "notes": "VaultStreet (src/VaultStreet.sol) is a fixed-supply OpenZeppelin v5 ERC-20 named Vault Street with symbol VST and 18 decimals. Its constructor takes no arguments and mints the whole supply of 1,000,000,000 VST (1000000000000000000000000000 minor units) once to msg.sender, which is the launch factory. Ordinary transfers move the exact amount: there is no transfer fee, burn, reflection, rebase, pause, blocklist, owner, minter, burnFrom, upgrade or initializer, and the token makes no external calls, so the factory's transfer to the MerkleDistributor, the pool seed through the PoolManager, claims and swaps all move exactly what they say. The supply cannot grow after construction. There are no application contracts: everything under test/ is test scaffolding only. The pool pairs with native ETH; the deployer derives the opening price from economics.initialMarketCapWei and totalSupply, and pool.initialPrice is provenance only."
+}
